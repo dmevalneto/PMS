@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PMS.Models.Cargo>
+
+
+
+<div class="content-heading">
+    <div>
+        Operações de Cargo
+    </div>
+    <div class="btn-group ml-auto">
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoCargo.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoCargo.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.CargoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.CargoId }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.CargoId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

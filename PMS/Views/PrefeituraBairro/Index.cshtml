@@ -1,0 +1,81 @@
+﻿@model IEnumerable<PMS.Models.PrefeituraBairro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tel2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gestor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Referencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tel1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tel2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gestor)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PrefeituraBairroId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PrefeituraBairroId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PrefeituraBairroId })
+        </td>
+    </tr>
+}
+
+</table>

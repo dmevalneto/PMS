@@ -1,0 +1,74 @@
+﻿@model PMS.Models.Encaminhamento
+
+@{
+    ViewBag.Title = "ImpCartaEncaminhamento";
+}
+
+
+
+<div id="print" class="conteudo">
+
+    <h2>ImpCartaEncaminhamento</h2>
+
+        <div>
+            <h4>Encaminhamento</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.EncaminhamentoId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EncaminhamentoId)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Terceirizado.Nome)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Terceirizado.Nome)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Data)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Data)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TipoLotacao)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TipoLotacao)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LotacaoId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LotacaoId)
+                </dd>
+
+
+</div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.EncaminhamentoId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+</div>
+
+<input type="button" onclick="cont();" value="Imprimir Div separadamente">
+<button class="btn btn-secondary float-left" type="button" onclick="window.print();">Print</button>
+
+<script>
+    function cont() {
+        var conteudo = document.getElementById('print').innerHTML;
+        tela_impressao = window.open('about:blank');
+        tela_impressao.document.write(conteudo);
+        tela_impressao.window.print();
+        tela_impressao.window.close();
+    }
+</script>

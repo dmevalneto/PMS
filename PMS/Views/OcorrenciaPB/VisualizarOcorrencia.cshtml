@@ -1,0 +1,187 @@
+﻿@model IEnumerable<PMS.Models.OcorrenciaPB>
+
+
+
+@{
+    ViewBag.Title = "Index";
+    List<string> locations = new List<string>();
+    double menor = 0;
+    double maior = 0;
+    var count = 0;
+
+    foreach (var l in Model)
+    {
+        if (count == 0)
+        {
+            menor = double.Parse(l.latitude.Replace('.', ','));
+            maior = double.Parse(l.longitude.Replace('.', ','));
+        }
+
+        if (double.Parse(l.latitude) < menor)
+        {
+            menor = double.Parse(l.latitude.Replace('.', ','));
+        }
+
+        if (double.Parse(l.longitude) < maior)
+        {
+            maior = double.Parse(l.longitude.Replace('.', ','));
+        }
+
+        var array = l.latitude + "&" + l.longitude;
+        locations.Add(array);
+        count++;
+    }
+
+}
+
+
+@section scripts{
+    @*@Scripts.Render("~/bundles/ocorrencia")*@
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDt0pnAgxUq7nEb8SwAzSEgNw_t2zKuLwI&callback=initMap"></script>
+
+    <script>
+
+        function initMap() {
+            var la = parseFloat(@menor.ToString().Replace(',','.'));
+            var lo = parseFloat(@maior.ToString().Replace(',','.'));
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: { lat: la, lng: lo }
+            });
+
+            setMarkers(map);
+        }
+
+        var loc = @Html.Raw(Json.Encode(locations));
+        var marker, i;
+
+        function setMarkers(map) {
+
+            for (var i = 0; i < loc.length; i++) {
+                var points = loc[i].split('&');
+                var lat = parseFloat(points[0]);
+                var long = parseFloat(points[1]);
+
+                marker = new google.maps.Marker({
+                    position: { lat: lat, lng: long},
+                    map: map
+                });
+
+                var infowindow = new google.maps.InfoWindow();
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        var points = loc[i].split('&');
+                        var lat = parseFloat(points[0]);
+                        var long = parseFloat(points[1]);
+                        geocoder = new google.maps.Geocoder();
+                        geocoder.geocode({ 'location': { lat: lat, lng: long } }, function (results, status) {
+                            console.log(i)
+                            console.log('{ lat: ' +lat + ', lng:'+ long +'}')
+                            console.log(results[0].formatted_address)
+                            infowindow.setContent(results[0].formatted_address);
+                            infowindow.open(map, marker);
+                        });
+                    }
+                })(marker, i));
+            }
+        }
+
+
+    </script>
+
+
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="map" style="width: 100%; height: 500px;"></div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DescricaoOcorrenciaPB.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoOcorrenciaPB.Tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.logradouro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bairro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoOcorrenciaPB.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoOcorrenciaPB.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.logradouro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OcorrenciaPBId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OcorrenciaPBId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OcorrenciaPBId })
+            </td>
+        </tr>
+    }
+
+</table>

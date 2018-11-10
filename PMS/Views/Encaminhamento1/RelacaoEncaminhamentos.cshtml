@@ -1,0 +1,49 @@
+﻿@model IEnumerable<PMS.Models.Encaminhamento>
+
+<div class="content-heading">
+    <div>
+        Relação de Encaminhamentos
+        <small>Relação de todos os encaminhamentos feitos ordenado por data</small>
+    </div>
+    <div class="btn-group ml-auto">
+        @Html.ActionLink("Voltar", "Index")
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Terceirizado.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoLotacao.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LotacaoId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Terceirizado.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoLotacao.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LotacaoId)
+        </td>
+        <td>
+            @Html.ActionLink("Visualizar Carta", "ImprimirCarta", new { id=item.EncaminhamentoId }, new { @class = "btn btn-primary" }) 
+        </td>
+    </tr>
+}
+
+</table>

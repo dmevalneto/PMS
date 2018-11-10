@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PMS.Models.Terceirizado>
+
+<div class="content-heading">
+    <div>
+        @ViewBag.Titulo
+        <!-- Breadcrumb below title-->
+        <ol class="breadcrumb breadcrumb px-0 pb-0">
+            <li class="breadcrumb-item">
+                <a class="text-muted" href="@Url.Action("Encaminhamento", "Terceirizado")">Inicio</a>
+            </li>
+        </ol>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cargo.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrestadoraServico.RazaoSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+
+        <th></th>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Cargo.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrestadoraServico.RazaoSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+
+        <td>
+            @Html.ActionLink("ListarGre", "ListarGre", new { idTer = item.TerceirizadoId })
+        </td>
+    </tr>
+    }
+
+    </table>

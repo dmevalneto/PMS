@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PMS.Models.Terceirizado>
+
+<div class="content-heading">
+    <div>
+        Encaminhamento
+        <small>Selecione o terceirizado que deseja encaminhar para uma secretária</small>
+    </div>
+    <div class="btn-group ml-auto">
+        @Html.ActionLink("Relação de Encaminhamentos", "RelacaoEncaminhamentos")
+    </div>
+</div>
+<div class="input-group mb-3">
+    <input class="form-control" type="text" placeholder="Localizar Terceirizado" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">Localizar</button>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cargo.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrestadoraServico.RazaoSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in
+        Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrestadoraServico.RazaoSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td >
+                @Html.ActionLink("Secretaria", "SelecionarSecretaria", new { id = item.TerceirizadoId }) |
+                @Html.ActionLink("PrefeituraBairro", "SelecionarPrefeituraBairro", new { id = item.TerceirizadoId }) |
+                @Html.ActionLink("Gre", "SelecionarGre", new { id = item.TerceirizadoId }) |
+                @Html.ActionLink("Escola", "SelecionarEscola", new { id = item.TerceirizadoId }) |
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+

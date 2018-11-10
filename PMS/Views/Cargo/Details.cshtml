@@ -1,0 +1,42 @@
+﻿@model PMS.Models.Cargo
+
+<div class="content-heading">
+    <div>
+        Operações de Cargo
+    </div>
+    <div class="btn-group ml-auto">
+        @Html.ActionLink("Voltar", "Index")
+    </div>
+</div>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCargo.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCargo.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.CargoId }) 
+</p>

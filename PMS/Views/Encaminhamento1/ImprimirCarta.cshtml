@@ -1,0 +1,269 @@
+﻿
+<div class="content-heading">
+    <div>
+        @Html.ActionLink("Voltar", "RelacaoEncaminhamentos")
+    </div>
+    <div class="btn-group ml-auto">
+        <button class="btn btn-labeled btn-info mb-2" onclick="cont();" type="button">
+            <span class="btn-label">
+                <i class="fa fa-print"></i>
+            </span>Imprimir
+        </button>
+    </div>
+</div>
+
+<div id="print" class="conteudo">
+    <page size="A4">
+        <style type="text/css">
+            .tg {
+                border-collapse: collapse;
+                border-spacing: 0;
+                border-color: #ccc;
+                width: 100%;
+            }
+
+                .tg td {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 0px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-top-width: 1px;
+                    border-bottom-width: 1px;
+                    border-color: #ccc;
+                    color: #333;
+                    background-color: #fff;
+                }
+
+                .tg th {
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: normal;
+                    padding: 10px 5px;
+                    border-style: solid;
+                    border-width: 0px;
+                    overflow: hidden;
+                    word-break: normal;
+                    border-top-width: 1px;
+                    border-bottom-width: 1px;
+                    border-color: #ccc;
+                    color: #333;
+                    background-color: #f0f0f0;
+                }
+
+                .tg .tg-c3ow {
+                    border-color: inherit;
+                    text-align: center;
+                    vertical-align: top
+                }
+
+                .tg .tg-0pky {
+                    border-color: inherit;
+                    text-align: left;
+                    vertical-align: top
+                }
+
+                .tg .tg-btxf {
+                    background-color: #f9f9f9;
+                    border-color: inherit;
+                    text-align: left;
+                    vertical-align: top
+                }
+        </style>
+        <table class="tg">
+            <tr>
+                <th class="tg-c3ow" colspan="6" height="50px" align="center"><h2>Carta de Encaminhamento</h2></th>
+            </tr>
+            <tr>
+                <td class="tg-btxf">Nome :</td>
+                <td class="tg-btxf" colspan="6">@ViewBag.nomeTer</td>
+            </tr>
+            <tr>
+                <td class="tg-0pky" colspan="3">Tipo da Lotação :</td>
+                <td class="tg-0pky" colspan="3">Lotado em :</td>
+            </tr>
+            <tr>
+                <td class="tg-btxf" colspan="3">@ViewBag.tipoLot</td>
+                <td class="tg-btxf" colspan="3">@ViewBag.nomeLot</td>
+            </tr>
+            <tr>
+                <td class="tg-0pky">@ViewBag.dataEnc</td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+            </tr>
+            <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+            </tr>
+            <tr>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+                <td class="tg-btxf"></td>
+            </tr>
+        </table>
+
+    </page>
+
+</div>
+
+
+<link href="~/Content/css/a4.css" rel="stylesheet" />
+
+<script>
+    function cont() {
+        var conteudo = document.getElementById('print').innerHTML;
+        tela_impressao = window.open('about:blank');
+        tela_impressao.document.write(conteudo);
+        tela_impressao.window.print();
+        tela_impressao.window.close();
+    }
+</script>
+

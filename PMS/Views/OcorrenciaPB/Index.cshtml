@@ -1,0 +1,88 @@
+﻿@model IEnumerable<PMS.Models.OcorrenciaPB>
+
+
+
+<div class="content-heading">
+        <div>
+            Encaminhamento de Terceirizados
+            <!-- Breadcrumb below title-->
+            <ol class="breadcrumb breadcrumb px-0 pb-0">
+                <li class="breadcrumb-item">
+                    <a class="text-muted" href="@Url.Action("Encaminhamento", "Terceirizado")">Inicio</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="portlets-wrapper">
+        <!-- START row-->
+        <div class="row">
+            <div class="col-lg-4" id="portlet-1" data-toggle="portlet">
+                <!-- START card-->
+                <div class="card card-default" id="cardPortlet1">
+                    <div class="card-header portlet-handler"></div>
+                    <div class="card-wrapper">
+                        <div class="card-body">
+                            <center>@Html.ActionLink("Encaminhar Para Secretária", "ListarTerceirizados", new { tipoLot = "Secretaria", idLot = 3 }, new { @class = "btn btn-primary" })</center>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <!-- END card-->
+                <!-- START card-->
+                <div class="card card-default" id="cardPortlet1">
+                    <div class="card-header portlet-handler"></div>
+                    <div class="card-wrapper">
+                        <div class="card-body">
+                            <center>@Html.ActionLink("Encaminhar Para Escola", "ListarTerceirizadosEscola", new { tipoLot = "Escola", idLot = 6 }, new { @class = "btn btn-primary" })</center>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <!-- END card-->
+
+            </div>
+            <div class="col-lg-4" id="portlet-2" data-toggle="portlet">
+                <!-- START card-->
+                <div class="card card-default" id="cardPortlet1">
+                    <div class="card-header portlet-handler"></div>
+                    <div class="card-wrapper">
+                        <div class="card-body">
+                            <center>@Html.ActionLink("Ocorrência Prefeitura Bairro", "ListarPrefeituraBairro")</center>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <!-- END card-->
+
+
+
+            </div>
+            <div class="col-lg-4" id="portlet-3" data-toggle="portlet">
+                <!-- START card-->
+                <div class="card card-default" id="cardPortlet1">
+                    <div class="card-header portlet-handler"></div>
+                    <div class="card-wrapper">
+                        <div class="card-body">
+                            <center>@Html.ActionLink("Encaminhar Para GRE", "ListarTerceirizadosGre", new { tipoLot = "Gre", idLot = 5 }, new { @class = "btn btn-primary" })</center>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <!-- END card-->
+
+
+
+
+            </div>
+        </div>
+        <!-- END row-->
+    </div>
+    @section Styles {
+
+    }
+    @section Scripts {
+        <script src="@Scripts.Url("~/Vendor/components-jqueryui/jquery-ui.js")"></script>
+        <script src="@Scripts.Url("~/Vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js")"></script>
+    }
+
+

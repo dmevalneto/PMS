@@ -1,0 +1,86 @@
+﻿    @{
+        ViewBag.Title = "Portlets";
+    }
+    <div class="content-heading">
+        <div>
+            Portlets
+            <small>Drag and collapse cards. Refresh and see how their state is automatically saved</small>
+        </div>
+        <div class="btn-group ml-auto">
+            <button class="btn btn-secondary btn-sm" type="button" onclick="resetPorlets()">Reset Porlets</button>
+        </div>
+    </div>
+    <div class="portlets-wrapper">
+        <!-- START row-->
+        <div class="row">
+            <div class="col-lg-4" id="portlet-1" data-toggle="portlet">
+                <!-- START card-->
+                <div class="card card-default" id="cardPortlet1">
+                    <div class="card-header portlet-handler">Registrar Ocorrência Secretária</div>
+                    <div class="card-wrapper">
+                        <div class="card-body">
+                            <center><button class="btn btn-primary btn-lg" type="button">Entrar</button></center>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <!-- END card-->
+                <!-- START card-->
+                 <div class="card card-default" id="cardPortlet1">
+                    <div class="card-header portlet-handler">Registrar Ocorrência Escola</div>
+                    <div class="card-wrapper">
+                        <div class="card-body">
+                            <center><button class="btn btn-primary btn-lg" type="button">Entrar</button></center>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <!-- END card-->
+
+
+
+            </div>
+            <div class="col-lg-4" id="portlet-2" data-toggle="portlet">
+                <!-- START card-->
+                <div class="card card-default" id="cardPortlet1">
+                    <div class="card-header portlet-handler">Registrar Ocorrência Prefeitura Bairro</div>
+                    <div class="card-wrapper">
+                        <div class="card-body">
+                            <center><button class="btn btn-primary btn-lg" type="button">Entrar</button></center>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <!-- END card-->
+              
+
+
+            </div>
+            <div class="col-lg-4" id="portlet-3" data-toggle="portlet">
+                <!-- START card-->
+                <div class="card card-default" id="cardPortlet1">
+                    <div class="card-header portlet-handler">Registrar Ocorrência GRE</div>
+                    <div class="card-wrapper">
+                        <div class="card-body">
+                            <center><button class="btn btn-primary btn-lg" type="button">Entrar</button></center>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <!-- END card-->
+               
+
+
+
+            </div>
+        </div>
+        <!-- END row-->
+    </div>
+    @section Styles {
+
+    }
+    @section Scripts {
+        <script src="@Scripts.Url("~/Vendor/components-jqueryui/jquery-ui.js")"></script>
+        <script src="@Scripts.Url("~/Vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js")"></script>
+    }
+

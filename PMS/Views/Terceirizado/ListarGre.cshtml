@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PMS.Models.Gre>
+
+<div class="content-heading">
+    <div>
+        @ViewBag.Titulo
+        <!-- Breadcrumb below title-->
+        <ol class="breadcrumb breadcrumb px-0 pb-0">
+            <li class="breadcrumb-item">
+                <a class="text-muted" href="@Url.Action("Encaminhamento", "Terceirizado")">Inicio</a>
+            </li>
+        </ol>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Secretaria.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Regional)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Secretaria.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Regional)
+            </td>
+
+            <td>
+                @Html.ActionLink("ConfirmarEncaminhamento", "ConfirmarEncaminhamento", new { lotacaoId = item.GreId })
+        </tr>
+    }
+
+</table>

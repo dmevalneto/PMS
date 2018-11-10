@@ -1,0 +1,80 @@
+﻿@model PMS.Models.Encaminhamento
+<div class="content-heading">
+    <div>
+    </div>
+    <div class="btn-group ml-auto">
+        @Html.ActionLink("Voltar", "Index")
+    </div>
+</div>
+
+<div class="card card-default">
+    <div class="card-header"></div>
+    <div class="card-body">
+        <h4></h4>
+        <blockquote>
+            <p><h3>Tem certeza que deseja confirmar o encaminhamento do(a) terceirizado(a) <u>@ViewBag.nomeTer</u>  ?</h3></p>
+        </blockquote>
+        @*<h4>Data:</h4>
+        <blockquote>
+            <p>@ViewBag.DataEnc</p>
+        </blockquote>*@
+        @*<h4>Tipo da Lotação:</h4>
+        <blockquote>
+            <p>@ViewBag.nomeLot</p>
+        </blockquote>
+        <h4>Espessificação da Lotação:</h4>
+        <blockquote>
+            <p>@ViewBag.nomeLot</p>
+        </blockquote>*@
+    </div>
+</div>
+
+@using (Html.BeginForm("Create", "Encaminhamento1", FormMethod.Post))
+{
+    <div class="card card-default">
+        <div class="card-header"></div>
+        <div class="card-body" hidden="hidden">
+            <fieldset>
+                <legend>Formulário de Encaminhamento</legend>
+            </fieldset>
+            <fieldset>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label" for="input-id-1"> @Html.LabelFor(model => model.TerceirizadoId)</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TerceirizadoId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label" for="input-id-1"> @Html.LabelFor(model => model.Data)</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label" for="input-id-1"> @Html.LabelFor(model => model.TipoLotacaoId)</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TipoLotacaoId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label" for="input-id-1"> @Html.LabelFor(model => model.LotacaoId)</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LotacaoId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Confirmar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PMS.Models.Terceirizado>
+
+<div class="content-heading">
+    <div>
+        Encaminhamento
+        <small>Selecione o terceirizado que deseja encaminhar para uma secretária</small>
+    </div>
+    <div class="btn-group ml-auto">
+        @Html.ActionLink("Carta de Encaminhamento", "CartaEncaminhamento")
+    </div>
+</div>
+<div class="input-group mb-3">
+    <input class="form-control" type="text" placeholder="Localizar Terceirizado" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">Localizar</button>
+    </div>
+</div>
+
+<!-- START card-->
+<div class="card card-default">
+    <div class="card-header">Relação de Terceirizados</div>
+    <div class="card-body">
+        <!-- START table-responsive-->
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>  @Html.DisplayNameFor(model => model.Cargo.Nome)</th>
+                        <th>  @Html.DisplayNameFor(model => model.Nome)</th>
+                        <th>  @Html.DisplayNameFor(model => model.Cpf)</th>
+                        <th>  @Html.DisplayName("Encaminhar Para:")</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @Html.DisplayFor(modelItem => item.Cargo.Nome)</td>
+                            <td> @Html.DisplayFor(modelItem => item.Nome)</td>
+                            <td> @Html.DisplayFor(modelItem => item.Cpf)</td>
+                            <td>
+                                @Html.ActionLink("Secretária", "SelecionarSecretaria", new { idTer = item.TerceirizadoId, nomeTer = item.Nome, tipoLotacaoId = 3 }) |
+                                @Html.ActionLink("Prefeitura Bairro", "SelecionarPrefeituraBairro", new { idTer = item.TerceirizadoId, nomeTer = item.Nome, tipoLotacaoId = 4 }) |
+                                @Html.ActionLink("GRE", "SelecionarGre", new { idTer = item.TerceirizadoId, nomeTer = item.Nome, tipoLotacaoId = 5 }) |
+                                @Html.ActionLink("Escola", "SelecionarEscola", new { idTer = item.TerceirizadoId, nomeTer = item.Nome, tipoLotacaoId = 6 }) |
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- END table-responsive-->
+    </div>
+</div>
+<!-- END card-->

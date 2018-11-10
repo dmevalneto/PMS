@@ -1,0 +1,74 @@
+﻿@model PMS.Models.Terceirizado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Terceirizado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cargo.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cargo.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ocorrencia.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ocorrencia.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrestadoraServico.RazaoSocial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrestadoraServico.RazaoSocial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAdmissao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAdmissao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TerceirizadoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
