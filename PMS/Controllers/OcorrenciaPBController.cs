@@ -48,14 +48,15 @@ namespace PMS.Controllers
         [Authorize(Roles = "View")]
         public ActionResult SelecionarOcorrencia(int id)
         {
+            ViewBag.PrefeituraID = id;
             return View(db.OcorrenciaPBs.ToList().Where(x => x.PrefeituraBairroId == id));
         }
 
         [Authorize(Roles = "PrefeituraBairro")]
         [Authorize(Roles = "View")]
-        public ActionResult VisualizarOcorrencia()
+        public ActionResult VisualizarOcorrencia(int id)
         {
-            var ocorrenciaPBs = db.OcorrenciaPBs.Include(o => o.DescricaoOcorrenciaPB).Include(o => o.PrefeituraBairro).Include(o => o.TipoOcorrenciaPB);
+            var ocorrenciaPBs = db.OcorrenciaPBs.Include(o => o.DescricaoOcorrenciaPB).Include(o => o.PrefeituraBairro).Include(o => o.TipoOcorrenciaPB).Where(x => x.PrefeituraBairroId == id);
             return View(ocorrenciaPBs.ToList());
         }
 
