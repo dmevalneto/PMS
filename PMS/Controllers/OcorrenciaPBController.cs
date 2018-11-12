@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -57,6 +58,41 @@ namespace PMS.Controllers
         public ActionResult VisualizarOcorrencia(int id)
         {
             var ocorrenciaPBs = db.OcorrenciaPBs.Include(o => o.DescricaoOcorrenciaPB).Include(o => o.PrefeituraBairro).Include(o => o.TipoOcorrenciaPB).Where(x => x.PrefeituraBairroId == id);
+
+            List<string> locations = new List<string>();
+            double menor = 0;
+            double maior = 0;
+            var count = 0;
+
+            foreach (var l in ocorrenciaPBs)
+            {
+                double latitude = Double.Parse(l.latitude, CultureInfo.InvariantCulture);
+                double longitude = Double.Parse(l.longitude, CultureInfo.InvariantCulture);
+
+                if (count == 0)
+                {
+                    menor = latitude;
+                    maior = longitude;
+                }
+
+                if (latitude < menor)
+                {
+                    menor = latitude;
+                }
+
+                if (longitude < maior)
+                {
+                    maior = longitude;
+                }
+
+                var array = latitude + "&" + longitude;
+                locations.Add(array);
+                count++;
+            }
+
+            ViewBag.Latitude = menor;
+            ViewBag.Longitude = maior;
+            ViewBag.Locations = locations;
             return View(ocorrenciaPBs.ToList());
         }
 

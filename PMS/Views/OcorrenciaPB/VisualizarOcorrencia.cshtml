@@ -4,50 +4,24 @@
 
 @{
     ViewBag.Title = "Index";
-    List<string> locations = new List<string>();
-    double menor = 0;
-    double maior = 0;
-    var count = 0;
 
-    foreach (var l in Model)
-    {
-        if (count == 0)
-        {
-            menor = double.Parse(l.latitude.Replace('.', ','));
-            maior = double.Parse(l.longitude.Replace('.', ','));
-        }
-
-        if (double.Parse(l.latitude) < menor)
-        {
-            menor = double.Parse(l.latitude.Replace('.', ','));
-        }
-
-        if (double.Parse(l.longitude) < maior)
-        {
-            maior = double.Parse(l.longitude.Replace('.', ','));
-        }
-
-        var array = l.latitude + "&" + l.longitude;
-        locations.Add(array);
-        count++;
-    }
-
+    var lat = ViewBag.Latitude;
+    var lo = ViewBag.Longitude;
+    var locations = (List<string>)ViewBag.Locations;
 }
 
 
 @section scripts{
-    @*@Scripts.Render("~/bundles/ocorrencia")*@
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDt0pnAgxUq7nEb8SwAzSEgNw_t2zKuLwI&callback=initMap"></script>
 
     <script>
-
+        
         function initMap() {
-            var la = parseFloat(@menor.ToString().Replace(',','.'));
-            var lo = parseFloat(@maior.ToString().Replace(',','.'));
+            var la = parseFloat(@lat);
+            var lo = parseFloat(@lo);
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 8,
+                zoom: 15,
                 center: { lat: la, lng: lo }
             });
 
@@ -58,8 +32,10 @@
         var marker, i;
 
         function setMarkers(map) {
+            console.log(loc);
 
             for (var i = 0; i < loc.length; i++) {
+                console.log(loc[i])
                 var points = loc[i].split('&');
                 var lat = parseFloat(points[0]);
                 var long = parseFloat(points[1]);
@@ -93,7 +69,7 @@
     </script>
 
 
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDt0pnAgxUq7nEb8SwAzSEgNw_t2zKuLwI&callback=initMap"></script>
 }
 
 <h2>Index</h2>
