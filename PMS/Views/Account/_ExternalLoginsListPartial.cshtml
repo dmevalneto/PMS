@@ -1,14 +1,14 @@
 ﻿@model PMS.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<h4>Desenvolvido por:</h4>
+<h4>Contato:</h4>
 <hr />
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
     if (loginProviders.Count() == 0) {
         <div>
             <p>
-                <span><img class="img-fluid" width="50px" height="10px" src="~/Content/Images/Folha tecnologia SEM LOGO.png" alt="App Logo">Folhas Tecnologia &copy; - 2018</span>
+                <span>contato@sispms.net</span>
             </p>
         </div>
     }
