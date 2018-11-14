@@ -224,6 +224,7 @@
     <Compile Include="Controllers\PrestadoraServicoController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\SecretariaController.cs" />
+    <Compile Include="Controllers\Terceirizado1Controller.cs" />
     <Compile Include="Controllers\TerceirizadoController.cs" />
     <Compile Include="Controllers\TipoCargoController.cs" />
     <Compile Include="Controllers\TipoLotacaoController.cs" />
@@ -691,6 +692,27 @@
     <Content Include="Views\OcorrenciaPB\ListarPrefeituraBairro.cshtml" />
     <Content Include="Views\OcorrenciaPB\SelecionarOcorrencia.cshtml" />
     <Content Include="Views\OcorrenciaPB\VisualizarOcorrencia.cshtml" />
+    <Content Include="Views\Terceirizado1\Create.cshtml" />
+    <Content Include="Views\Terceirizado1\Delete.cshtml" />
+    <Content Include="Views\Terceirizado1\Details.cshtml" />
+    <Content Include="Views\Terceirizado1\Edit.cshtml" />
+    <Content Include="Views\Terceirizado1\Index.cshtml" />
+    <Content Include="Views\Terceirizado1\EncaminharP1.cshtml" />
+    <Content Include="Views\Terceirizado1\ListarSecretaria.cshtml" />
+    <Content Include="Views\Terceirizado1\EncaminharSecretaria.cshtml" />
+    <Content Include="Views\Terceirizado1\ListarPrefeituraBairro.cshtml" />
+    <Content Include="Views\Terceirizado1\ListarGre.cshtml" />
+    <Content Include="Views\Terceirizado1\Listarescola.cshtml" />
+    <Content Include="Views\Terceirizado1\EncaminharPrefeituraBairro.cshtml" />
+    <Content Include="Views\Terceirizado1\EncaminharGre.cshtml" />
+    <Content Include="Views\Terceirizado1\EncaminharEscola.cshtml" />
+    <Content Include="Views\Terceirizado1\ListarEncaminhamentos.cshtml" />
+    <Content Include="Views\Terceirizado1\ImprimirEncaminhamento.cshtml" />
+    <Content Include="Views\Terceirizado1\Historico.cshtml" />
+    <Content Include="Views\Terceirizado1\LotSecretaria.cshtml" />
+    <Content Include="Views\Terceirizado1\LotPrefeituraBairro.cshtml" />
+    <Content Include="Views\Terceirizado1\LotGre.cshtml" />
+    <Content Include="Views\Terceirizado1\LotEscola.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

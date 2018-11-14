@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PMS.Models.Terceirizado>
+
+
+<div class="content-heading">
+    <div>
+        | @Html.ActionLink("Novo", "Create") | @Html.ActionLink("Visualizar Encaminhamentos", "ListarEncaminhamentos") |
+    </div>
+</div>
+<div class="card card-default">
+    <div class="card-header">Terceirizados</div>
+    <!-- START table-responsive-->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover" id="table-ext-1">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Cargo.Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.Ocorrencia.Descricao)</th>
+                    <th>@Html.DisplayNameFor(model => model.PrestadoraServico.RazaoSocial)</th>
+                    <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                    <th>@Html.DisplayNameFor(model => model.Cpf)</th>
+                    <th>@Html.DisplayNameFor(model => model.DataAdmissao)</th>
+                    <th>@Html.DisplayNameFor(model => model.Telefone)</th>
+                    <th>Comandos</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Cargo.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ocorrencia.Descricao)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PrestadoraServico.RazaoSocial)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cpf)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataAdmissao)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.TerceirizadoId }) |
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.TerceirizadoId }) |
+                        @Html.ActionLink("Excluir", "Delete", new { id = item.TerceirizadoId }) |
+                        @Html.ActionLink("Histórico", "Historico", new { id = item.TerceirizadoId }) |
+                        @Html.ActionLink("Encaminhar", "EncaminharP1", new { id = item.TerceirizadoId, nome = item.Nome })
+                    </td>
+                </tr>
+                }
+                </tbody>
+        </table>
+    </div>
+    <!-- END table-responsive-->
+    <div class="card-footer">
+        <div class="d-flex">
+         
+        </div>
+    </div>
+</div>

@@ -15,6 +15,9 @@ namespace PMS.Models
         public DateTime DataAdmissao { get; set; }
         public string Telefone { get; set; }
 
+        public int TipoLotacao { get; set; }
+        public int Lotacao { get; set; }
+
         public int PrestadoraServicoId { get; set; }
         public virtual PrestadoraServico PrestadoraServico { get; set; }
 

@@ -1,0 +1,74 @@
+﻿
+<div class="content-heading">
+    <div>
+        @Html.ActionLink("Voltar", "ListarEncaminhamentos")
+    </div>
+    <div class="btn-group ml-auto">
+        <button class="btn btn-labeled btn-info mb-2" onclick="cont();" type="button">
+            <span class="btn-label">
+                <i class="fa fa-print"></i>
+            </span>Imprimir
+        </button>
+    </div>
+</div>
+
+<div id="print" class="conteudo">
+    <page size="A4">
+        <span><img class="img-fluid" width="70px" height="15px" src="~/Content/Images/logo_prefeitura.png" alt="App Logo"></span>
+        <hr />
+        <center><h1>Carta de Encaminhamento</h1></center>
+        <hr />
+        <br />
+        <br />
+        <table border="1" style="width: 100%; border:medium;">
+            <tr>
+                <th colspan="2" style="text-align:left">Nome:</th>
+            </tr>
+            <tr>
+                <td colspan="2">@ViewBag.nomeTer</td>
+            </tr>
+            <tr>
+                <td>Cpf:</td>
+                <td>Telefone:</td>
+            </tr>
+            <tr>
+                <td>@ViewBag.cpfTer</td>
+                <td>@ViewBag.telTer</td>
+            </tr>
+            <tr>
+                <td>Empresa:</td>
+                <td>Cargo:</td>
+            </tr>
+            <tr>
+                <td>@ViewBag.NomeEmp</td>
+                <td>@ViewBag.NomeCargo</td>
+            </tr>
+        </table>
+        <table border="1" style="width: 100%; border:medium;">
+            <tr>
+                <th>Unidade:</th>
+            </tr>
+            <tr>
+                <th>@ViewBag.NomeLotacao</th>
+            </tr>
+            </tableborder="1">
+            <table style="height:600px;  width:100%" ; align="center">
+                <tr>
+                    <th style="vertical-align:bottom">Atenciosamente:</th>
+                    <th style="vertical-align:bottom">____________________________________________________________________</th>
+                </tr>
+            </table>
+    </page>
+</div>
+<link href="~/Content/css/a4.css" rel="stylesheet" />
+
+<script>
+    function cont() {
+        var conteudo = document.getElementById('print').innerHTML;
+        tela_impressao = window.open('about:blank');
+        tela_impressao.document.write(conteudo);
+        tela_impressao.window.print();
+        tela_impressao.window.close();
+    }
+</script>
+
