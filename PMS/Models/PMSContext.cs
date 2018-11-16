@@ -55,5 +55,29 @@ namespace PMS.Models
         public System.Data.Entity.DbSet<PMS.Models.DescricaoOcorrenciaPB> DescricaoOcorrenciaPBs { get; set; }
 
         public System.Data.Entity.DbSet<PMS.Models.OcorrenciaPB> OcorrenciaPBs { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.TipoOcorrenciaSec> TipoOcorrenciaSecs { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.DescricaoOcorrenciaSec> DescricaoOcorrenciaSecs { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.StatusOcorrenciaSec> StatusOcorrenciaSecs { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.OcorrenciaSec> OcorrenciaSecs { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.TipoOcorrenciaGre> TipoOcorrenciaGres { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.DescricaoOcorrenciaGre> DescricaoOcorrenciaGres { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.StatusOcorrenciaGre> StatusOcorrenciaGres { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.OcorrenciaGre> OcorrenciaGres { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.TipoOcorrenciaEscola> TipoOcorrenciaEscolas { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.DescricaoOcorrenciaEscola> DescricaoOcorrenciaEscolas { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.StatusOcorrenciaEscola> StatusOcorrenciaEscolas { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.OcorrenciaEscola> OcorrenciaEscolas { get; set; }
     }
 }

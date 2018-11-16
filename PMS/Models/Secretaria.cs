@@ -14,5 +14,6 @@ namespace PMS.Models
         public string Observacao { get; set; }
 
         public virtual ICollection<Gre> Gre { get; set; }
+        public virtual ICollection<OcorrenciaSec> OcorrenciaSec { get; set; }
     }
 }

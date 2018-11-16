@@ -1,0 +1,122 @@
+﻿@model PMS.Models.OcorrenciaSec
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OcorrenciaSec</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DescricaoOcorrenciaSec.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescricaoOcorrenciaSec.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Secretaria.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Secretaria.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusOcorrenciaSec.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusOcorrenciaSec.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoOcorrenciaSec.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoOcorrenciaSec.Tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logradouro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logradouro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OcorrenciaSecId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

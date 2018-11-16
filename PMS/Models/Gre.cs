@@ -24,5 +24,7 @@ namespace PMS.Models
         public virtual Secretaria Secretaria { get; set; }
 
         public virtual ICollection<Escola> Escola { get; set; }
+
+        public virtual ICollection<OcorrenciaGre> OcorrenciaGre { get; set; }
     }
 }
