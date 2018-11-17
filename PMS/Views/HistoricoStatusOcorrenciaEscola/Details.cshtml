@@ -1,0 +1,50 @@
+﻿@model PMS.Models.HistoricoStatusOcorrenciaEscola
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HistoricoStatusOcorrenciaEscola</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OcorrenciaEscola.latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OcorrenciaEscola.latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusOcorrenciaEscola.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusOcorrenciaEscola.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HistoricoStatusOcorrenciaEscolaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

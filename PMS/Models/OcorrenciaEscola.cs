@@ -9,7 +9,7 @@ namespace PMS.Models
     public class OcorrenciaEscola
     {
         [Key]
-        public int OcorrenciaSecId { get; set; }
+        public int OcorrenciaEscolaId { get; set; }
         public string latitude { get; set; }
         public string longitude { get; set; }
         public string logradouro { get; set; }
@@ -26,10 +26,11 @@ namespace PMS.Models
         public int DescricaoOcorrenciaEscolaId { get; set; }
         public virtual DescricaoOcorrenciaEscola DescricaoOcorrenciaEscola { get; set; }
 
-        public int StatusOcorrenciaEscolaId { get; set; }
-        public virtual StatusOcorrenciaEscola StatusOcorrenciaEscola { get; set; }
+
 
         public int EscolaId { get; set; }
         public virtual Escola Escola { get; set; }
+
+        public virtual ICollection<HistoricoStatusOcorrenciaEscola> HistoricoStatusOcorrenciaEscola { get; set; }
     }
 }

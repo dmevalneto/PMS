@@ -6,7 +6,6 @@
 
 <h2>Edit</h2>
 
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -15,7 +14,7 @@
         <h4>OcorrenciaGre</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.OcorrenciaSecId)
+        @Html.HiddenFor(model => model.OcorrenciaGreId)
 
         <div class="form-group">
             @Html.LabelFor(model => model.latitude, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -106,14 +105,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StatusOcorrenciaGreId, "StatusOcorrenciaGreId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("StatusOcorrenciaGreId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.StatusOcorrenciaGreId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.GreId, "GreId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("GreId", null, htmlAttributes: new { @class = "form-control" })
@@ -132,7 +123,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

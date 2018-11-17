@@ -24,7 +24,6 @@ namespace PMS.Models
 
         public int GreId { get; set; }
         public virtual Gre Gre { get; set; }
-
-        public virtual ICollection<OcorrenciaEscola> OcorrenciaEscola { get; set; }
+        
     }
 }

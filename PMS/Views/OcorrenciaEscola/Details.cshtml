@@ -27,14 +27,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StatusOcorrenciaEscola.Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StatusOcorrenciaEscola.Status)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.TipoOcorrenciaEscola.Tipo)
         </dt>
 
@@ -117,6 +109,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OcorrenciaSecId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OcorrenciaEscolaId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

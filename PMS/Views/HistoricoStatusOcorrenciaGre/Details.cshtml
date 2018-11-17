@@ -1,0 +1,50 @@
+﻿@model PMS.Models.HistoricoStatusOcorrenciaGre
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HistoricoStatusOcorrenciaGre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OcorrenciaGre.latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OcorrenciaGre.latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusOcorrenciaGre.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusOcorrenciaGre.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HistoricoStatusOcorrenciaGreId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

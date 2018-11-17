@@ -26,10 +26,11 @@ namespace PMS.Models
         public int DescricaoOcorrenciaSecId { get; set; }
         public virtual DescricaoOcorrenciaSec DescricaoOcorrenciaSec { get; set; }
 
-        public int StatusOcorrenciaSecId { get; set; }
-        public virtual StatusOcorrenciaSec StatusOcorrenciaSec { get; set; }
+      
 
         public int SecretariaId { get; set; }
         public virtual Secretaria Secretaria { get; set; }
+
+        public virtual ICollection<HistoricoStatusOcorrenciaSec> HistoricoStatusOcorrenciaSec { get; set; }
     }
 }

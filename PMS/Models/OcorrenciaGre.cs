@@ -9,7 +9,7 @@ namespace PMS.Models
     public class OcorrenciaGre
     {
         [Key]
-        public int OcorrenciaSecId { get; set; }
+        public int OcorrenciaGreId { get; set; }
         public string latitude { get; set; }
         public string longitude { get; set; }
         public string logradouro { get; set; }
@@ -26,10 +26,11 @@ namespace PMS.Models
         public int DescricaoOcorrenciaGreId { get; set; }
         public virtual DescricaoOcorrenciaGre DescricaoOcorrenciaGre { get; set; }
 
-        public int StatusOcorrenciaGreId { get; set; }
-        public virtual StatusOcorrenciaGre StatusOcorrenciaGre { get; set; }
+
 
         public int GreId { get; set; }
         public virtual Gre Gre { get; set; }
+
+        public virtual ICollection<HistoricoStatusOcorrenciaGre> HistoricoStatusOcorrenciaGre { get; set; }
     }
 }

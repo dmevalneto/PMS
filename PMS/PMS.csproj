@@ -218,6 +218,9 @@
     <Compile Include="Controllers\EncaminhamentoController.cs" />
     <Compile Include="Controllers\EscolaController.cs" />
     <Compile Include="Controllers\GreController.cs" />
+    <Compile Include="Controllers\HistoricoStatusOcorrenciaEscolaController.cs" />
+    <Compile Include="Controllers\HistoricoStatusOcorrenciaGreController.cs" />
+    <Compile Include="Controllers\HistoricoStatusOcorrenciaSecController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManutencaoController.cs" />
@@ -252,6 +255,9 @@
     <Compile Include="Models\DescricaoOcorrenciaPB.cs" />
     <Compile Include="Models\DescricaoOcorrenciaSec.cs" />
     <Compile Include="Models\Encaminhamento.cs" />
+    <Compile Include="Models\HistoricoStatusOcorrenciaEscola.cs" />
+    <Compile Include="Models\HistoricoStatusOcorrenciaGre.cs" />
+    <Compile Include="Models\HistoricoStatusOcorrenciaSec.cs" />
     <Compile Include="Models\OcorrenciaEscola.cs" />
     <Compile Include="Models\OcorrenciaGre.cs" />
     <Compile Include="Models\OcorrenciaPB.cs" />
@@ -757,6 +763,13 @@
     <Content Include="Views\OcorrenciaSec\Details.cshtml" />
     <Content Include="Views\OcorrenciaSec\Edit.cshtml" />
     <Content Include="Views\OcorrenciaSec\Index.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaSec\Create.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaSec\Delete.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaSec\Details.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaSec\Edit.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaSec\Index.cshtml" />
+    <Content Include="Views\OcorrenciaSec\SalvarHistoricoStatus.cshtml" />
+    <Content Include="Views\OcorrenciaSec\HistoricoStatus.cshtml" />
     <Content Include="Views\TipoOcorrenciaGre\Create.cshtml" />
     <Content Include="Views\TipoOcorrenciaGre\Delete.cshtml" />
     <Content Include="Views\TipoOcorrenciaGre\Details.cshtml" />
@@ -767,6 +780,11 @@
     <Content Include="Views\DescricaoOcorrenciaGre\Details.cshtml" />
     <Content Include="Views\DescricaoOcorrenciaGre\Edit.cshtml" />
     <Content Include="Views\DescricaoOcorrenciaGre\Index.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaGre\Create.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaGre\Delete.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaGre\Details.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaGre\Edit.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaGre\Index.cshtml" />
     <Content Include="Views\StatusOcorrenciaGre\Create.cshtml" />
     <Content Include="Views\StatusOcorrenciaGre\Delete.cshtml" />
     <Content Include="Views\StatusOcorrenciaGre\Details.cshtml" />
@@ -777,6 +795,8 @@
     <Content Include="Views\OcorrenciaGre\Details.cshtml" />
     <Content Include="Views\OcorrenciaGre\Edit.cshtml" />
     <Content Include="Views\OcorrenciaGre\Index.cshtml" />
+    <Content Include="Views\OcorrenciaGre\SalvarHistoricoStatus.cshtml" />
+    <Content Include="Views\OcorrenciaGre\HistoricoStatus.cshtml" />
     <Content Include="Views\TipoOcorrenciaEscola\Create.cshtml" />
     <Content Include="Views\TipoOcorrenciaEscola\Delete.cshtml" />
     <Content Include="Views\TipoOcorrenciaEscola\Details.cshtml" />
@@ -787,16 +807,23 @@
     <Content Include="Views\DescricaoOcorrenciaEscola\Details.cshtml" />
     <Content Include="Views\DescricaoOcorrenciaEscola\Edit.cshtml" />
     <Content Include="Views\DescricaoOcorrenciaEscola\Index.cshtml" />
-    <Content Include="Views\StatusOcorrenciaEscola\Create.cshtml" />
-    <Content Include="Views\StatusOcorrenciaEscola\Delete.cshtml" />
-    <Content Include="Views\StatusOcorrenciaEscola\Details.cshtml" />
-    <Content Include="Views\StatusOcorrenciaEscola\Edit.cshtml" />
-    <Content Include="Views\StatusOcorrenciaEscola\Index.cshtml" />
     <Content Include="Views\OcorrenciaEscola\Create.cshtml" />
     <Content Include="Views\OcorrenciaEscola\Delete.cshtml" />
     <Content Include="Views\OcorrenciaEscola\Details.cshtml" />
     <Content Include="Views\OcorrenciaEscola\Edit.cshtml" />
     <Content Include="Views\OcorrenciaEscola\Index.cshtml" />
+    <Content Include="Views\StatusOcorrenciaEscola\Create.cshtml" />
+    <Content Include="Views\StatusOcorrenciaEscola\Delete.cshtml" />
+    <Content Include="Views\StatusOcorrenciaEscola\Details.cshtml" />
+    <Content Include="Views\StatusOcorrenciaEscola\Edit.cshtml" />
+    <Content Include="Views\StatusOcorrenciaEscola\Index.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaEscola\Create.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaEscola\Delete.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaEscola\Details.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaEscola\Edit.cshtml" />
+    <Content Include="Views\HistoricoStatusOcorrenciaEscola\Index.cshtml" />
+    <Content Include="Views\OcorrenciaEscola\SalvarHistoricoStatus.cshtml" />
+    <Content Include="Views\OcorrenciaEscola\HistoricoStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,6 +12,6 @@ namespace PMS.Models
         public int StatusOcorrenciaSecId { get; set; }
         public string Status { get; set; }
         public string Observacao { get; set; }
-        public virtual ICollection<OcorrenciaSec> OcorrenciaSec { get; set; }
+        public virtual ICollection<HistoricoStatusOcorrenciaSec> HistoricoStatusOcorrenciaSec { get; set; }
     }
 }

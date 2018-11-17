@@ -17,7 +17,7 @@ namespace PMS.Controllers
         // GET: OcorrenciaGre
         public ActionResult Index()
         {
-            var ocorrenciaGres = db.OcorrenciaGres.Include(o => o.DescricaoOcorrenciaGre).Include(o => o.Gre).Include(o => o.StatusOcorrenciaGre).Include(o => o.TipoOcorrenciaGre);
+            var ocorrenciaGres = db.OcorrenciaGres.Include(o => o.DescricaoOcorrenciaGre).Include(o => o.Gre).Include(o => o.TipoOcorrenciaGre);
             return View(ocorrenciaGres.ToList());
         }
 
@@ -41,7 +41,6 @@ namespace PMS.Controllers
         {
             ViewBag.DescricaoOcorrenciaGreId = new SelectList(db.DescricaoOcorrenciaGres, "DescricaoOcorrenciaGreId", "Descricao");
             ViewBag.GreId = new SelectList(db.Gres, "GreId", "Regional");
-            ViewBag.StatusOcorrenciaGreId = new SelectList(db.StatusOcorrenciaGres, "StatusOcorrenciaGreId", "Status");
             ViewBag.TipoOcorrenciaGreId = new SelectList(db.TipoOcorrenciaGres, "TipoOcorrenciaGreId", "Tipo");
             return View();
         }
@@ -51,7 +50,7 @@ namespace PMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OcorrenciaSecId,latitude,longitude,logradouro,numero,bairro,cep,cidade,estado,Data,TipoOcorrenciaGreId,DescricaoOcorrenciaGreId,StatusOcorrenciaGreId,GreId")] OcorrenciaGre ocorrenciaGre)
+        public ActionResult Create([Bind(Include = "OcorrenciaGreId,latitude,longitude,logradouro,numero,bairro,cep,cidade,estado,Data,TipoOcorrenciaGreId,DescricaoOcorrenciaGreId,GreId")] OcorrenciaGre ocorrenciaGre)
         {
             if (ModelState.IsValid)
             {
@@ -62,7 +61,6 @@ namespace PMS.Controllers
 
             ViewBag.DescricaoOcorrenciaGreId = new SelectList(db.DescricaoOcorrenciaGres, "DescricaoOcorrenciaGreId", "Descricao", ocorrenciaGre.DescricaoOcorrenciaGreId);
             ViewBag.GreId = new SelectList(db.Gres, "GreId", "Regional", ocorrenciaGre.GreId);
-            ViewBag.StatusOcorrenciaGreId = new SelectList(db.StatusOcorrenciaGres, "StatusOcorrenciaGreId", "Status", ocorrenciaGre.StatusOcorrenciaGreId);
             ViewBag.TipoOcorrenciaGreId = new SelectList(db.TipoOcorrenciaGres, "TipoOcorrenciaGreId", "Tipo", ocorrenciaGre.TipoOcorrenciaGreId);
             return View(ocorrenciaGre);
         }
@@ -81,7 +79,6 @@ namespace PMS.Controllers
             }
             ViewBag.DescricaoOcorrenciaGreId = new SelectList(db.DescricaoOcorrenciaGres, "DescricaoOcorrenciaGreId", "Descricao", ocorrenciaGre.DescricaoOcorrenciaGreId);
             ViewBag.GreId = new SelectList(db.Gres, "GreId", "Regional", ocorrenciaGre.GreId);
-            ViewBag.StatusOcorrenciaGreId = new SelectList(db.StatusOcorrenciaGres, "StatusOcorrenciaGreId", "Status", ocorrenciaGre.StatusOcorrenciaGreId);
             ViewBag.TipoOcorrenciaGreId = new SelectList(db.TipoOcorrenciaGres, "TipoOcorrenciaGreId", "Tipo", ocorrenciaGre.TipoOcorrenciaGreId);
             return View(ocorrenciaGre);
         }
@@ -91,7 +88,7 @@ namespace PMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OcorrenciaSecId,latitude,longitude,logradouro,numero,bairro,cep,cidade,estado,Data,TipoOcorrenciaGreId,DescricaoOcorrenciaGreId,StatusOcorrenciaGreId,GreId")] OcorrenciaGre ocorrenciaGre)
+        public ActionResult Edit([Bind(Include = "OcorrenciaGreId,latitude,longitude,logradouro,numero,bairro,cep,cidade,estado,Data,TipoOcorrenciaGreId,DescricaoOcorrenciaGreId,GreId")] OcorrenciaGre ocorrenciaGre)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +98,6 @@ namespace PMS.Controllers
             }
             ViewBag.DescricaoOcorrenciaGreId = new SelectList(db.DescricaoOcorrenciaGres, "DescricaoOcorrenciaGreId", "Descricao", ocorrenciaGre.DescricaoOcorrenciaGreId);
             ViewBag.GreId = new SelectList(db.Gres, "GreId", "Regional", ocorrenciaGre.GreId);
-            ViewBag.StatusOcorrenciaGreId = new SelectList(db.StatusOcorrenciaGres, "StatusOcorrenciaGreId", "Status", ocorrenciaGre.StatusOcorrenciaGreId);
             ViewBag.TipoOcorrenciaGreId = new SelectList(db.TipoOcorrenciaGres, "TipoOcorrenciaGreId", "Tipo", ocorrenciaGre.TipoOcorrenciaGreId);
             return View(ocorrenciaGre);
         }
@@ -131,6 +127,45 @@ namespace PMS.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        public ActionResult SalvarHistoricoStatus(int id)
+        {
+            ViewBag.id = id;
+            TempData["id"] = id;
+            TempData.Keep("id");
+            ViewBag.OcorrenciaGreId = new SelectList(db.OcorrenciaGres, "OcorrenciaGreId", "latitude");
+            ViewBag.StatusOcorrenciaGreId = new SelectList(db.StatusOcorrenciaGres, "StatusOcorrenciaGreId", "Status");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CriarHistoricoStatus([Bind(Include = "HistoricoStatusOcorrenciaGreId,Data,Observacao,StatusOcorrenciaGreId,OcorrenciaGreId")] HistoricoStatusOcorrenciaGre historicoStatusOcorrenciaGre)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.id = TempData["id"];
+                historicoStatusOcorrenciaGre.Data = DateTime.Now;
+                historicoStatusOcorrenciaGre.OcorrenciaGreId = ViewBag.id;
+                db.HistoricoStatusOcorrenciaGres.Add(historicoStatusOcorrenciaGre);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.OcorrenciaGreId = new SelectList(db.OcorrenciaGres, "OcorrenciaGreId", "latitude", historicoStatusOcorrenciaGre.OcorrenciaGreId);
+            ViewBag.StatusOcorrenciaGreId = new SelectList(db.StatusOcorrenciaGres, "StatusOcorrenciaGreId", "Status", historicoStatusOcorrenciaGre.StatusOcorrenciaGreId);
+            return View(historicoStatusOcorrenciaGre);
+        }
+
+        public ActionResult HistoricoStatus(int id)
+        {
+
+            var hist = db.HistoricoStatusOcorrenciaGres.Where(c => c.OcorrenciaGreId == id);
+
+            return View(hist);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

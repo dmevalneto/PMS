@@ -14,6 +14,5 @@ namespace PMS.Models
         public string Observacao { get; set; }
 
         public virtual ICollection<OcorrenciaEscola> OcorrenciaEscola { get; set; }
-
     }
 }

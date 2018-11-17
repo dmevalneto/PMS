@@ -17,7 +17,7 @@ namespace PMS.Controllers
         // GET: OcorrenciaSec
         public ActionResult Index()
         {
-            var ocorrenciaSecs = db.OcorrenciaSecs.Include(o => o.DescricaoOcorrenciaSec).Include(o => o.Secretaria).Include(o => o.StatusOcorrenciaSec).Include(o => o.TipoOcorrenciaSec);
+            var ocorrenciaSecs = db.OcorrenciaSecs.Include(o => o.DescricaoOcorrenciaSec).Include(o => o.Secretaria).Include(o => o.TipoOcorrenciaSec);
             return View(ocorrenciaSecs.ToList());
         }
 
@@ -41,7 +41,6 @@ namespace PMS.Controllers
         {
             ViewBag.DescricaoOcorrenciaSecId = new SelectList(db.DescricaoOcorrenciaSecs, "DescricaoOcorrenciaSecId", "Descricao");
             ViewBag.SecretariaId = new SelectList(db.Secretarias, "SecretariaId", "Nome");
-            ViewBag.StatusOcorrenciaSecId = new SelectList(db.StatusOcorrenciaSecs, "StatusOcorrenciaSecId", "Status");
             ViewBag.TipoOcorrenciaSecId = new SelectList(db.TipoOcorrenciaSecs, "TipoOcorrenciaSecId", "Tipo");
             return View();
         }
@@ -51,7 +50,7 @@ namespace PMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OcorrenciaSecId,latitude,longitude,logradouro,numero,bairro,cep,cidade,estado,Data,TipoOcorrenciaSecId,DescricaoOcorrenciaSecId,StatusOcorrenciaSecId,SecretariaId")] OcorrenciaSec ocorrenciaSec)
+        public ActionResult Create([Bind(Include = "OcorrenciaSecId,latitude,longitude,logradouro,numero,bairro,cep,cidade,estado,Data,TipoOcorrenciaSecId,DescricaoOcorrenciaSecId,SecretariaId")] OcorrenciaSec ocorrenciaSec)
         {
             if (ModelState.IsValid)
             {
@@ -62,7 +61,6 @@ namespace PMS.Controllers
 
             ViewBag.DescricaoOcorrenciaSecId = new SelectList(db.DescricaoOcorrenciaSecs, "DescricaoOcorrenciaSecId", "Descricao", ocorrenciaSec.DescricaoOcorrenciaSecId);
             ViewBag.SecretariaId = new SelectList(db.Secretarias, "SecretariaId", "Nome", ocorrenciaSec.SecretariaId);
-            ViewBag.StatusOcorrenciaSecId = new SelectList(db.StatusOcorrenciaSecs, "StatusOcorrenciaSecId", "Status", ocorrenciaSec.StatusOcorrenciaSecId);
             ViewBag.TipoOcorrenciaSecId = new SelectList(db.TipoOcorrenciaSecs, "TipoOcorrenciaSecId", "Tipo", ocorrenciaSec.TipoOcorrenciaSecId);
             return View(ocorrenciaSec);
         }
@@ -81,7 +79,6 @@ namespace PMS.Controllers
             }
             ViewBag.DescricaoOcorrenciaSecId = new SelectList(db.DescricaoOcorrenciaSecs, "DescricaoOcorrenciaSecId", "Descricao", ocorrenciaSec.DescricaoOcorrenciaSecId);
             ViewBag.SecretariaId = new SelectList(db.Secretarias, "SecretariaId", "Nome", ocorrenciaSec.SecretariaId);
-            ViewBag.StatusOcorrenciaSecId = new SelectList(db.StatusOcorrenciaSecs, "StatusOcorrenciaSecId", "Status", ocorrenciaSec.StatusOcorrenciaSecId);
             ViewBag.TipoOcorrenciaSecId = new SelectList(db.TipoOcorrenciaSecs, "TipoOcorrenciaSecId", "Tipo", ocorrenciaSec.TipoOcorrenciaSecId);
             return View(ocorrenciaSec);
         }
@@ -91,7 +88,7 @@ namespace PMS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OcorrenciaSecId,latitude,longitude,logradouro,numero,bairro,cep,cidade,estado,Data,TipoOcorrenciaSecId,DescricaoOcorrenciaSecId,StatusOcorrenciaSecId,SecretariaId")] OcorrenciaSec ocorrenciaSec)
+        public ActionResult Edit([Bind(Include = "OcorrenciaSecId,latitude,longitude,logradouro,numero,bairro,cep,cidade,estado,Data,TipoOcorrenciaSecId,DescricaoOcorrenciaSecId,SecretariaId")] OcorrenciaSec ocorrenciaSec)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +98,6 @@ namespace PMS.Controllers
             }
             ViewBag.DescricaoOcorrenciaSecId = new SelectList(db.DescricaoOcorrenciaSecs, "DescricaoOcorrenciaSecId", "Descricao", ocorrenciaSec.DescricaoOcorrenciaSecId);
             ViewBag.SecretariaId = new SelectList(db.Secretarias, "SecretariaId", "Nome", ocorrenciaSec.SecretariaId);
-            ViewBag.StatusOcorrenciaSecId = new SelectList(db.StatusOcorrenciaSecs, "StatusOcorrenciaSecId", "Status", ocorrenciaSec.StatusOcorrenciaSecId);
             ViewBag.TipoOcorrenciaSecId = new SelectList(db.TipoOcorrenciaSecs, "TipoOcorrenciaSecId", "Tipo", ocorrenciaSec.TipoOcorrenciaSecId);
             return View(ocorrenciaSec);
         }
@@ -130,6 +126,43 @@ namespace PMS.Controllers
             db.OcorrenciaSecs.Remove(ocorrenciaSec);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult SalvarHistoricoStatus(int id)
+        {
+            ViewBag.id = id;
+            TempData["id"] = id;
+            TempData.Keep("id");
+            ViewBag.OcorrenciaSecId = new SelectList(db.OcorrenciaSecs, "OcorrenciaSecId", "latitude");
+            ViewBag.StatusOcorrenciaSecId = new SelectList(db.StatusOcorrenciaSecs, "StatusOcorrenciaSecId", "Status");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CriarHistoricoStatus([Bind(Include = "HistoricoStatusOcorrenciaSecId,Data,Observacao,StatusOcorrenciaSecId,OcorrenciaSecId")] HistoricoStatusOcorrenciaSec historicoStatusOcorrenciaSec)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.id = TempData["id"];
+                historicoStatusOcorrenciaSec.Data = DateTime.Now;
+                historicoStatusOcorrenciaSec.OcorrenciaSecId = ViewBag.id;
+                db.HistoricoStatusOcorrenciaSecs.Add(historicoStatusOcorrenciaSec);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.OcorrenciaSecId = new SelectList(db.OcorrenciaSecs, "OcorrenciaSecId", "latitude", historicoStatusOcorrenciaSec.OcorrenciaSecId);
+            ViewBag.StatusOcorrenciaSecId = new SelectList(db.StatusOcorrenciaSecs, "StatusOcorrenciaSecId", "Status", historicoStatusOcorrenciaSec.StatusOcorrenciaSecId);
+            return View(historicoStatusOcorrenciaSec);
+        }
+
+        public ActionResult HistoricoStatus(int id)
+        {
+         
+            var hist = db.HistoricoStatusOcorrenciaSecs.Where(c => c.OcorrenciaSecId == id);
+
+            return View(hist);
         }
 
         protected override void Dispose(bool disposing)

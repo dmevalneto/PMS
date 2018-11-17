@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PMS.Models.HistoricoStatusOcorrenciaEscola>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OcorrenciaEscola.latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusOcorrenciaEscola.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OcorrenciaEscola.latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusOcorrenciaEscola.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Observacao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HistoricoStatusOcorrenciaEscolaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HistoricoStatusOcorrenciaEscolaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HistoricoStatusOcorrenciaEscolaId })
+        </td>
+    </tr>
+}
+
+</table>

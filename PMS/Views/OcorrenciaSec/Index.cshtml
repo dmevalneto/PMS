@@ -2,7 +2,7 @@
 
 <div class="content-heading">
     <div>
-        |  @Html.ActionLink("Tipo", "Index", "TipoOcorrenciaSec") | @Html.ActionLink("Descrição", "Index", "DescricaoOcorrenciaSec") |  @Html.ActionLink("Status", "Index", "StatusOcorrenciaSec")
+        | @Html.ActionLink("Tipo", "Index", "TipoOcorrenciaSec") | @Html.ActionLink("Descrição Ocorrência", "Index", "DescricaoOcorrenciaSec") | @Html.ActionLink("Status", "Index", "StatusOcorrenciaSec") 
     </div>
 </div>
 
@@ -16,9 +16,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Secretaria.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StatusOcorrenciaSec.Status)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TipoOcorrenciaSec.Tipo)
@@ -62,9 +59,6 @@
             @Html.DisplayFor(modelItem => item.Secretaria.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.StatusOcorrenciaSec.Status)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.TipoOcorrenciaSec.Tipo)
         </td>
         <td>
@@ -95,9 +89,11 @@
             @Html.DisplayFor(modelItem => item.Data)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OcorrenciaSecId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OcorrenciaSecId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OcorrenciaSecId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.OcorrenciaSecId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.OcorrenciaSecId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.OcorrenciaSecId }) |
+            @Html.ActionLink("Add Status", "SalvarHistoricoStatus", new { id = item.OcorrenciaSecId }) |
+            @Html.ActionLink("Historico", "HistoricoStatus", new { id = item.OcorrenciaSecId }) |
         </td>
     </tr>
 }
