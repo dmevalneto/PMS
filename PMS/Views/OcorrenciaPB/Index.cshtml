@@ -50,7 +50,7 @@
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.OcorrenciaPBId }) |
                             @Html.ActionLink("Details", "Details", new { id = item.OcorrenciaPBId }) |
-                            @Html.ActionLink("Mapa", "ViewMapa") |
+                            @Html.ActionLink("Mapa", "ViewMapa", new { id = item.PrefeituraBairroId }) |
                             @Html.ActionLink("Add Status", "SalvarHistoricoStatus", new { id = item.OcorrenciaPBId }) |
                             @Html.ActionLink("Historico", "HistoricoStatus", new { id = item.OcorrenciaPBId }) |
                         </td>

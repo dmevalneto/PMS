@@ -168,10 +168,10 @@ namespace PMS.Controllers
         }
 
 
-        public ActionResult ViewMapa()
+        public ActionResult ViewMapa(int id)
         {
 
-            var ocorrenciaPBs = db.OcorrenciaPBs.Include(o => o.DescricaoOcorrenciaPB).Include(o => o.PrefeituraBairro).Include(o => o.TipoOcorrenciaPB).ToList();
+            var ocorrenciaPBs = db.OcorrenciaPBs.Where(x=> x.PrefeituraBairroId == id).ToList();
 
             List<string> locations = new List<string>();
             double menor = 0;

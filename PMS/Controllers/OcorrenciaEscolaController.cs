@@ -169,10 +169,10 @@ namespace PMS.Controllers
             return View(hist);
         }
 
-        public ActionResult ViewMapa()
+        public ActionResult ViewMapa(int id)
         {
 
-            var ocorrenciaPBs = db.OcorrenciaEscolas.ToList();
+            var ocorrenciaPBs = db.OcorrenciaEscolas.Where(x=> x.EscolaId == id).ToList();
 
             List<string> locations = new List<string>();
             double menor = 0;
