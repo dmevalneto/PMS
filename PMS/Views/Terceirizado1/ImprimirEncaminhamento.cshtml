@@ -1,7 +1,9 @@
 ﻿
+
+
 <div class="content-heading">
     <div>
-        @Html.ActionLink("Voltar", "ListarEncaminhamentos")
+        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Voltar", "Index")</button>
     </div>
     <div class="btn-group ml-auto">
         <button class="btn btn-labeled btn-info mb-2" onclick="cont();" type="button">
@@ -14,13 +16,88 @@
 
 <div id="print" class="conteudo">
     <page size="A4">
-        <span><img class="img-fluid" width="70px" height="15px" src="~/Content/Images/logo_prefeitura.png" alt="App Logo"></span>
+        <table class="table table-bordered table-hover" id="table-ext-1" width="100%" height="100">
+            <thead>
+                <tr>
+                    <th align="left"><span><img class="img-fluid" width="100px" height="15px" src="~/Content/Images/logo_prefeitura.png" alt="App Logo"></span></th>
+                </tr>
+            </thead>
+            <hr />
+            <tbody>
+                <tr>
+                    <td><center><h3><span class="text-black-50">Carta de Encaminhamento</span></h3></center></td>
+                </tr>
+            </tbody>
+        </table>
         <hr />
-        <center><h1>Carta de Encaminhamento</h1></center>
+        <table class="table table-bordered table-hover" id="table-ext-1" width="100%" height="100">
+            <thead>
+                <tr>
+                    <th align="left">Nome:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@ViewBag.nomeTer</td>
+                </tr>
+            </tbody>
+        </table>
         <hr />
-        <br />
-        <br />
-        <table border="1" style="width: 100%; border:medium;">
+        <table class="table table-bordered table-hover" id="table-ext-1" width="100%" height="100">
+            <thead>
+                <tr>
+                    <th align="left">Cpf:</th>
+                    <th align="left">Telefone:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@ViewBag.cpfTer</td>
+                    <td>@ViewBag.telTer</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+        <table class="table table-bordered table-hover" id="table-ext-1" width="100%" height="100">
+            <thead>
+                <tr>
+                    <th align="left">Empresa:</th>
+                    <th align="left">Cargo:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@ViewBag.NomeEmp</td>
+                    <td>@ViewBag.NomeCargo</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+        <table class="table table-bordered table-hover" id="table-ext-1" width="100%" height="100">
+            <thead>
+                <tr>
+                    <th align="left">Unidade:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th align="left">@ViewBag.NomeLotacao</th>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered table-hover" id="table-ext-1" width="100%" height="100">
+            <thead>
+                <tr>
+                    <th align="left">Responsável:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>_____________________________________________________________________________________________</th>
+                </tr>
+            </tbody>
+        </table>
+        @*<table border="1" style="width: 100%; border:medium;">
             <tr>
                 <th colspan="2" style="text-align:left">Nome:</th>
             </tr>
@@ -57,7 +134,11 @@
                     <th style="vertical-align:bottom">Atenciosamente:</th>
                     <th style="vertical-align:bottom">____________________________________________________________________</th>
                 </tr>
-            </table>
+            </table>*@
+
+
+
+
     </page>
 </div>
 <link href="~/Content/css/a4.css" rel="stylesheet" />

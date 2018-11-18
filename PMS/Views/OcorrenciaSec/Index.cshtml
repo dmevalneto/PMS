@@ -2,100 +2,68 @@
 
 <div class="content-heading">
     <div>
-        | @Html.ActionLink("Tipo", "Index", "TipoOcorrenciaSec") | @Html.ActionLink("Descrição Ocorrência", "Index", "DescricaoOcorrenciaSec") | @Html.ActionLink("Status", "Index", "StatusOcorrenciaSec") 
+        | @Html.ActionLink("Tipo", "Index", "TipoOcorrenciaSec") | @Html.ActionLink("Descrição Ocorrência", "Index", "DescricaoOcorrenciaSec") | @Html.ActionLink("Status", "Index", "StatusOcorrenciaSec")
     </div>
 </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DescricaoOcorrenciaSec.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Secretaria.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoOcorrenciaSec.Tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.latitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.longitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.logradouro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.numero)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.bairro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cep)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DescricaoOcorrenciaSec.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Secretaria.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoOcorrenciaSec.Tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.latitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.longitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.logradouro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.numero)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bairro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cep)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.OcorrenciaSecId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.OcorrenciaSecId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.OcorrenciaSecId }) |
-            @Html.ActionLink("Add Status", "SalvarHistoricoStatus", new { id = item.OcorrenciaSecId }) |
-            @Html.ActionLink("Historico", "HistoricoStatus", new { id = item.OcorrenciaSecId }) |
-        </td>
-    </tr>
-}
 
-</table>
+
+
+<div class="card card-default">
+    <div class="card-header">@Html.ActionLink("Nova Ocorrência", "Create")</div>
+    <!-- START table-responsive-->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover" id="table-ext-1">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DescricaoOcorrenciaSec.Descricao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Secretaria.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TipoOcorrenciaSec.Tipo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Data)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DescricaoOcorrenciaSec.Descricao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Secretaria.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipoOcorrenciaSec.Tipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.OcorrenciaSecId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.OcorrenciaSecId }) |
+                            @Html.ActionLink("Mapa", "ViewMapa", new { id = item.SecretariaId }) |
+                            @Html.ActionLink("Add Status", "SalvarHistoricoStatus", new { id = item.OcorrenciaSecId }) |
+                            @Html.ActionLink("Historico", "HistoricoStatus", new { id = item.OcorrenciaSecId }) |
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- END table-responsive-->
+    <div class="card-footer">
+        <div class="d-flex">
+
+        </div>
+    </div>

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<PMS.Models.HistoricoStatusOcorrenciaEscola>
+﻿@model IEnumerable<PMS.Models.HistoricoStatusOcorrenciaPB>
+
 
 
 
@@ -10,7 +11,7 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.StatusOcorrenciaEscola.Status)
+                        @Html.DisplayNameFor(model => model.StatusOcorrenciaPB.Status)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Data)
@@ -18,7 +19,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Observacao)
                     </th>
-                    @*<th></th>*@
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +27,7 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.StatusOcorrenciaEscola.Status)
+                            @Html.DisplayFor(modelItem => item.StatusOcorrenciaPB.Status)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Data)
@@ -34,11 +35,11 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Observacao)
                         </td>
-                        @*<td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.HistoricoStatusOcorrenciaEscolaId }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.HistoricoStatusOcorrenciaEscolaId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.HistoricoStatusOcorrenciaEscolaId })
-                        </td>*@
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.HistoricoStatusOcorrenciaPBId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.HistoricoStatusOcorrenciaPBId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.HistoricoStatusOcorrenciaPBId })
+                        </td>
                     </tr>
                 }
 

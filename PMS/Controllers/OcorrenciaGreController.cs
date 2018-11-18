@@ -18,7 +18,7 @@ namespace PMS.Controllers
         public ActionResult Index()
         {
             var ocorrenciaGres = db.OcorrenciaGres.Include(o => o.DescricaoOcorrenciaGre).Include(o => o.Gre).Include(o => o.TipoOcorrenciaGre);
-            return View(ocorrenciaGres.ToList());
+            return View(ocorrenciaGres.ToList().OrderByDescending(d => d.Data));
         }
 
         // GET: OcorrenciaGre/Details/5
@@ -54,6 +54,7 @@ namespace PMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                ocorrenciaGre.Data = DateTime.Now;
                 db.OcorrenciaGres.Add(ocorrenciaGre);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -166,6 +167,13 @@ namespace PMS.Controllers
             return View(hist);
         }
 
+        public ActionResult ViewMapa(int id)
+        {
+
+            // var oco = db.OcorrenciaEscolas.Where(c => c.EscolaId == id);
+
+            return View(db.OcorrenciaGres.Where(c => c.GreId == id));
+        }
 
         protected override void Dispose(bool disposing)
         {

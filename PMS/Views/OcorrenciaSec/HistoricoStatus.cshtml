@@ -1,51 +1,47 @@
 ﻿@model IEnumerable<PMS.Models.HistoricoStatusOcorrenciaSec>
 
-@{
-    ViewBag.Title = "HistoricoStatus";
-}
 
-<h2>HistoricoStatus</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OcorrenciaSec.latitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StatusOcorrenciaSec.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Observacao)
-        </th>
-        <th></th>
-    </tr>
+<div class="card card-default">
+    <div class="card-header">@Html.ActionLink("Voltar", "Index")</div>
+    <!-- START table-responsive-->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover" id="table-ext-1">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StatusOcorrenciaSec.Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Data)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Observacao)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StatusOcorrenciaSec.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Observacao)
+                        </td>
+                    </tr>
+                }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OcorrenciaSec.latitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StatusOcorrenciaSec.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Observacao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.HistoricoStatusOcorrenciaSecId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.HistoricoStatusOcorrenciaSecId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.HistoricoStatusOcorrenciaSecId })
-        </td>
-    </tr>
-}
+            </tbody>
+        </table>
+    </div>
+    <!-- END table-responsive-->
+    <div class="card-footer">
+        <div class="d-flex">
 
-</table>
+        </div>
+    </div>

@@ -18,9 +18,7 @@ namespace PMS.Models
         public string cep { get; set; }
         public string cidade { get; set; }
         public string estado { get; set; }
-        public string foto { get; set; }
         public DateTime Data { get; set; }
-
 
         public int TipoOcorrenciaPBId { get; set; }
         public virtual TipoOcorrenciaPB TipoOcorrenciaPB { get; set; }
@@ -28,7 +26,11 @@ namespace PMS.Models
         public int DescricaoOcorrenciaPBId { get; set; }
         public virtual DescricaoOcorrenciaPB DescricaoOcorrenciaPB { get; set; }
 
+
+
         public int PrefeituraBairroId { get; set; }
         public virtual PrefeituraBairro PrefeituraBairro { get; set; }
+
+        //public virtual ICollection<HistoricoStatusOcorrenciaSec> HistoricoStatusOcorrenciaSec { get; set; }
     }
 }

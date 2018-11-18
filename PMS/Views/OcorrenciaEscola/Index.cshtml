@@ -2,100 +2,65 @@
 
 <div class="content-heading">
     <div>
-        | @Html.ActionLink("Tipo", "Index", "TipoOcorrenciaEscola") | @Html.ActionLink("Descrição Ocorrência", "Index", "DescricaoOcorrenciaEscola") | @Html.ActionLink("Status", "Index", "StatusOcorrenciaEscola")
+         @Html.ActionLink("Add Tipo", "Index", "TipoOcorrenciaEscola") | @Html.ActionLink("Add Descrição Ocorrência", "Index", "DescricaoOcorrenciaEscola") | @Html.ActionLink("Add Status", "Index", "StatusOcorrenciaEscola")
     </div>
 </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DescricaoOcorrenciaEscola.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Escola.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoOcorrenciaEscola.Tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.latitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.longitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.logradouro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.numero)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.bairro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cep)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DescricaoOcorrenciaEscola.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Escola.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoOcorrenciaEscola.Tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.latitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.longitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.logradouro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.numero)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bairro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cep)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.OcorrenciaEscolaId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.OcorrenciaEscolaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.OcorrenciaEscolaId })
-            @Html.ActionLink("Add Status", "SalvarHistoricoStatus", new { id = item.OcorrenciaEscolaId }) |
-            @Html.ActionLink("Historico", "HistoricoStatus", new { id = item.OcorrenciaEscolaId }) |
-        </td>
-    </tr>
-}
 
-</table>
+<div class="card card-default">
+    <div class="card-header">@Html.ActionLink("Nova Ocorrência", "Create", new { @class = "btn btn-success" })</div>
+    <!-- START table-responsive-->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover" id="table-ext-1">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DescricaoOcorrenciaEscola.Descricao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Escola.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TipoOcorrenciaEscola.Tipo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Data)
+                    </th>
+                    <th>Comandos</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DescricaoOcorrenciaEscola.Descricao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Escola.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipoOcorrenciaEscola.Tipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.OcorrenciaEscolaId }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.OcorrenciaEscolaId }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Mapa", "ViewMapa", new { id = item.EscolaId }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Add Status", "SalvarHistoricoStatus", new { id = item.OcorrenciaEscolaId }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Historico", "HistoricoStatus", new { id = item.OcorrenciaEscolaId }, new { @class = "btn btn-primary" }) 
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- END table-responsive-->
+    <div class="card-footer">
+        <div class="d-flex">
+
+        </div>
+    </div>

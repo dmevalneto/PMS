@@ -85,5 +85,9 @@ namespace PMS.Models
         public System.Data.Entity.DbSet<PMS.Models.StatusOcorrenciaEscola> StatusOcorrenciaEscolas { get; set; }
 
         public System.Data.Entity.DbSet<PMS.Models.HistoricoStatusOcorrenciaEscola> HistoricoStatusOcorrenciaEscolas { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.HistoricoStatusOcorrenciaPB> HistoricoStatusOcorrenciaPBs { get; set; }
+
+        public System.Data.Entity.DbSet<PMS.Models.StatusOcorrenciaPB> StatusOcorrenciaPBs { get; set; }
     }
 }

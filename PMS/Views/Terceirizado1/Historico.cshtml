@@ -1,49 +1,62 @@
 ﻿@model IEnumerable<PMS.Models.Encaminhamento>
+<div class="content-heading">
+    <div>
+        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Voltar", "Index")</button>  
 
-@{
-    ViewBag.Title = "Historico";
-}
+    </div>
 
-<h2>Historico</h2>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Terceirizado.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoLotacao.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LotacaoId)
-        </th>
-        <th></th>
-    </tr>
+<div class="card card-default">
+    <div class="card-header">Terceirizados</div>
+    <!-- START table-responsive-->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover" id="table-ext-1">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Terceirizado.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TipoLotacao.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Data)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LotacaoId)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Terceirizado.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipoLotacao.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Data)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LotacaoId)
+                        </td>
+                        <td>
+                        
+                            <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Ver Local", "LocalRemanejamento", new { id = item.EncaminhamentoId })</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- END table-responsive-->
+    <div class="card-footer">
+        <div class="d-flex">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Terceirizado.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoLotacao.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LotacaoId)
-        </td>
-        <td>
-            @Html.ActionLink("Ver Local", "LocalRemanejamento", new { id=item.EncaminhamentoId }) 
-        </td>
-    </tr>
-}
-
-</table>
+        </div>
+    </div>

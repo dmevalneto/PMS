@@ -3,8 +3,10 @@
 
 <div class="content-heading">
     <div>
-        | @Html.ActionLink("Novo", "Create") | @Html.ActionLink("Visualizar Encaminhamentos", "ListarEncaminhamentos") |
+        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Add Novo", "Create")</button>   <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Listar Encaminhamentos", "ListarEncaminhamentos")</button>
+
     </div>
+
 </div>
 <div class="card card-default">
     <div class="card-header">Terceirizados</div>
@@ -26,30 +28,31 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Cargo.Nome)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Ocorrencia.Descricao)</td>
-                    <td>@Html.DisplayFor(modelItem => item.PrestadoraServico.RazaoSocial)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Cpf)</td>
-                    <td>@Html.DisplayFor(modelItem => item.DataAdmissao)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
-                    <td>
-                        @Html.ActionLink("Editar", "Edit", new { id = item.TerceirizadoId }) |
-                        @Html.ActionLink("Detalhes", "Details", new { id = item.TerceirizadoId }) |
-                        @Html.ActionLink("Excluir", "Delete", new { id = item.TerceirizadoId }) |
-                        @Html.ActionLink("Histórico", "Historico", new { id = item.TerceirizadoId }) |
-                        @Html.ActionLink("Encaminhar", "EncaminharP1", new { id = item.TerceirizadoId, nome = item.Nome })
-                    </td>
-                </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Cargo.Nome)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Ocorrencia.Descricao)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PrestadoraServico.RazaoSocial)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Cpf)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DataAdmissao)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
+                        <td>
+
+                            <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Editar", "Edit", new { id = item.TerceirizadoId })</button>
+                            <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Detalhes", "Details", new { id = item.TerceirizadoId })</button>
+                            <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Excluir", "Delete", new { id = item.TerceirizadoId }) </button>
+                            <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Histórico", "Historico", new { id = item.TerceirizadoId })</button>
+                            <button class="mb-1 btn btn-outline-success" type="button">@Html.ActionLink("Encaminhar", "EncaminharP1", new { id = item.TerceirizadoId, nome = item.Nome })</button>
+                        </td>
+                    </tr>
                 }
-                </tbody>
+            </tbody>
         </table>
     </div>
     <!-- END table-responsive-->
     <div class="card-footer">
         <div class="d-flex">
-         
+
         </div>
     </div>
 </div>
