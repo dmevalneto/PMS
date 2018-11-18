@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -167,12 +168,47 @@ namespace PMS.Controllers
         }
 
 
-        public ActionResult ViewMapa(int id)
+        public ActionResult ViewMapa()
         {
 
-            var oco = db.OcorrenciaPBs.Where(c => c.PrefeituraBairroId == id);
+            var ocorrenciaPBs = db.OcorrenciaPBs.Include(o => o.DescricaoOcorrenciaPB).Include(o => o.PrefeituraBairro).Include(o => o.TipoOcorrenciaPB).ToList();
 
-            return View(oco);
+            List<string> locations = new List<string>();
+            double menor = 0;
+            double maior = 0;
+            var count = 0;
+
+            foreach (var l in ocorrenciaPBs)
+            {
+                double latitude = Double.Parse(l.latitude, CultureInfo.InvariantCulture);
+                double longitude = Double.Parse(l.longitude, CultureInfo.InvariantCulture);
+
+                if (count == 0)
+                {
+                    menor = latitude;
+                    maior = longitude;
+                }
+
+                if (latitude >= menor)
+                {
+                    menor = latitude;
+                }
+
+                if (longitude <= maior)
+                {
+                    maior = longitude;
+                }
+
+                var array = latitude.ToString().Replace(",",".") + "&" + longitude.ToString().Replace(",", ".");
+                locations.Add(array);
+                count++;
+            }
+
+            ViewBag.Latitude = menor.ToString().Replace(",", ".");
+            ViewBag.Longitude = maior.ToString().Replace(",", ".");
+            ViewBag.Locations = locations;
+            
+            return View(ocorrenciaPBs);
         }
 
         protected override void Dispose(bool disposing)

@@ -49,9 +49,9 @@
                         <td>
                             @Html.ActionLink("Editar", "Edit", new { id = item.OcorrenciaEscolaId }, new { @class = "btn btn-primary" }) |
                             @Html.ActionLink("Detalhes", "Details", new { id = item.OcorrenciaEscolaId }, new { @class = "btn btn-primary" }) |
-                            @Html.ActionLink("Mapa", "ViewMapa", new { id = item.EscolaId }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Mapa", "ViewMapa" , new { } ,new { @class = "btn btn-primary" }) |
                             @Html.ActionLink("Add Status", "SalvarHistoricoStatus", new { id = item.OcorrenciaEscolaId }, new { @class = "btn btn-primary" }) |
-                            @Html.ActionLink("Historico", "HistoricoStatus", new { id = item.OcorrenciaEscolaId }, new { @class = "btn btn-primary" }) 
+                            @Html.ActionLink("Historico", "HistoricoStatus", new { id = item.OcorrenciaEscolaId }, new { @class = "btn btn-primary" })
                         </td>
                     </tr>
                 }
