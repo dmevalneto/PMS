@@ -358,6 +358,7 @@ namespace PMS.Controllers
                 Escola esc = db.Escolas.Find(enc.LotacaoId);
                 ViewBag.NomeLotacao = esc.Nome;
                 ViewBag.endEscola = esc.Logradouro;
+                ViewBag.Bairro = esc.Bairro ;
             }
 
             if (enc == null)
