@@ -3,48 +3,45 @@
 
 <div class="content-heading">
     <div>
-        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Add Novo", "Create")</button>   <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Listar Encaminhamentos", "ListarEncaminhamentos")</button>
-
+        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Voltar", "OperacoesTerceirizado")</button>
     </div>
-
 </div>
+
 <div class="card card-default">
-    <div class="card-header">Terceirizados</div>
+    <div class="card-header">Terceirizados em ordem alfabética</div>
     <!-- START table-responsive-->
     <div class="table-responsive">
         <table class="table table-bordered table-hover" id="table-ext-1">
             <thead>
                 <tr>
-                    <th>@Html.DisplayNameFor(model => model.Cargo.Nome)</th>
-                    <th>@Html.DisplayNameFor(model => model.Ocorrencia.Descricao)</th>
-                    <th>@Html.DisplayNameFor(model => model.PrestadoraServico.RazaoSocial)</th>
+                    @*<th>@Html.DisplayNameFor(model => model.Cargo.Nome)</th>
+                        <th>@Html.DisplayNameFor(model => model.Ocorrencia.Descricao)</th>
+                        <th>@Html.DisplayNameFor(model => model.PrestadoraServico.RazaoSocial)</th>*@
                     <th>@Html.DisplayNameFor(model => model.Nome)</th>
-                    <th>@Html.DisplayNameFor(model => model.Cpf)</th>
-                    <th>@Html.DisplayNameFor(model => model.DataAdmissao)</th>
-                    <th>@Html.DisplayNameFor(model => model.Telefone)</th>
+                    @*<th>@Html.DisplayNameFor(model => model.Cpf)</th>
+                        <th>@Html.DisplayNameFor(model => model.DataAdmissao)</th>
+                        <th>@Html.DisplayNameFor(model => model.Telefone)</th>*@
                     <th>Comandos</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.Cargo.Nome)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Ocorrencia.Descricao)</td>
-                        <td>@Html.DisplayFor(modelItem => item.PrestadoraServico.RazaoSocial)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Nome)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Cpf)</td>
-                        <td>@Html.DisplayFor(modelItem => item.DataAdmissao)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
-                        <td>
+                <tr>
+                    @*<td>@Html.DisplayFor(modelItem => item.Cargo.Nome)</td>
+        <td>@Html.DisplayFor(modelItem => item.Ocorrencia.Descricao)</td>
+        <td>@Html.DisplayFor(modelItem => item.PrestadoraServico.RazaoSocial)</td>*@
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    @*<td>@Html.DisplayFor(modelItem => item.Cpf)</td>*@
+                    @*<td>@Html.DisplayFor(modelItem => item.DataAdmissao)</td>
+        <td>@Html.DisplayFor(modelItem => item.Telefone)</td>*@
+                    <td>
 
-                            <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Editar", "Edit", new { id = item.TerceirizadoId })</button>
-                            <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Detalhes", "Details", new { id = item.TerceirizadoId })</button>
-                            <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Excluir", "Delete", new { id = item.TerceirizadoId }) </button>
-                            <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Histórico", "Historico", new { id = item.TerceirizadoId })</button>
-                            <button class="mb-1 btn btn-outline-success" type="button">@Html.ActionLink("Encaminhar", "EncaminharP1", new { id = item.TerceirizadoId, nome = item.Nome })</button>
-                        </td>
-                    </tr>
+                        <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Histórico", "Historico", new { id = item.TerceirizadoId })</button>
+                        <button class="mb-1 btn btn-outline-success" type="button">@Html.ActionLink("Encaminhar", "EncaminharP1", new { id = item.TerceirizadoId, nome = item.Nome })</button>
+                        <button class="mb-1 btn btn-outline-danger" type="button">@Html.ActionLink("Avaliar", "EncaminharP1", new { id = item.TerceirizadoId, nome = item.Nome })</button>  
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

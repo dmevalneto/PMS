@@ -22,6 +22,7 @@ namespace PMS.Controllers
             var cargoes = db.Cargoes.Include(c => c.TipoCargo);
             return View(cargoes.ToList());
         }
+        
 
         [Authorize(Roles = "View")]
         [Authorize(Roles = "Administrador")]

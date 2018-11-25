@@ -10,8 +10,8 @@
                         <!-- User picture-->
                         <div class="user-block-picture">
                             <div class="user-block-status">
-                                <img src="~/Content/Images/user/02.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail rounded-circle" />
-                                <div class="circle bg-success circle-lg"></div>
+                                @*<img src="~/Content/Images/user/02.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail rounded-circle" />*@
+                                @*<div class="circle bg-success circle-lg"></div>*@
                             </div>
                         </div>
                         <!-- Name and Job-->
@@ -34,8 +34,8 @@
                     <span data-localize="sidebar.nav.DASHBOARD">Pessoas</span>
                 </a>
                 <ul id="Terceirizado" class="sidebar-nav sidebar-subnav collapse">
-                    <li class=""> @Html.ActionLink("DashBoard", "Index", "DashBoard")</li>
-                    <li class=""> @Html.ActionLink("Operações", "Index", "Terceirizado1")</li>
+                    <li class=""> @Html.ActionLink("Novo", "Create", "Terceirizado1")</li>
+                    <li class=""> @Html.ActionLink("Operações", "OperacoesTerceirizado", "Terceirizado1")</li>
                 </ul>
             </li>
             <li class="">
@@ -51,7 +51,7 @@
                     <li class=""> @Html.ActionLink("Escola", "Index", "OcorrenciaEscola")</li>
                 </ul>
             </li>
-            <li class="">
+            @*<li class="">
                 <a href="#configuracao" title="Dashboard" data-toggle="collapse">
                     <em class="icon-settings"></em>
                     <span data-localize="sidebar.nav.DASHBOARD">Configuração</span>
@@ -70,7 +70,7 @@
                     <li class=""> @Html.ActionLink("Definir QTD de Terceirizado por Unidade", "Contact", "Home")</li>
                     <li class=""> @Html.ActionLink("Usuários", "Index", "Users")</li>
                 </ul>
-            </li>
+            </li>*@
         </ul>
         <!-- END sidebar nav-->
     </nav>

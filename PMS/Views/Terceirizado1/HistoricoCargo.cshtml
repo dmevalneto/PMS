@@ -1,11 +1,11 @@
-﻿@model IEnumerable<PMS.Models.Encaminhamento>
+﻿@model IEnumerable<PMS.Models.Cargo>
+
 <div class="content-heading">
     <div>
         <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Voltar", "OperacoesTerceirizado")</button>
-
     </div>
-
 </div>
+
 
 <div class="card card-default">
     <div class="card-header">Terceirizados</div>
@@ -15,16 +15,13 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Terceirizado.Nome)
+                        @Html.DisplayNameFor(model => model.TipoCargo.Nome)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.TipoLotacao.Nome)
+                        @Html.DisplayNameFor(model => model.Nome)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Data)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.LotacaoId)
+                        @Html.DisplayNameFor(model => model.Descricao)
                     </th>
                     <th></th>
                 </tr>
@@ -34,20 +31,17 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Terceirizado.Nome)
+                            @Html.DisplayFor(modelItem => item.TipoCargo.Nome)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.TipoLotacao.Nome)
+                            @Html.DisplayFor(modelItem => item.Nome)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Data)
+                            @Html.DisplayFor(modelItem => item.Descricao)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.LotacaoId)
-                        </td>
-                        <td>
-                        
-                            <button class="mb-1 btn btn-outline-primary" type="button">@Html.ActionLink("Ver Local", "LocalRemanejamento", new { id = item.EncaminhamentoId })</button>
+                           
+                            <button class="mb-1 btn btn-outline-success" type="button">@Html.ActionLink("Mostrar", "HistoricoCargo1", new { id = item.CargoId })</button>
                         </td>
                     </tr>
                 }
@@ -60,3 +54,4 @@
 
         </div>
     </div>
+</div>

@@ -20,5 +20,6 @@ namespace PMS.Models
         public virtual TipoLotacao TipoLotacao { get; set; }
 
         public int LotacaoId { get; set; }
+        
     }
 }

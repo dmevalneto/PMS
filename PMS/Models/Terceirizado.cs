@@ -10,9 +10,15 @@ namespace PMS.Models
     {
         [Key]
         public int TerceirizadoId { get; set; }
+        [Required(ErrorMessage = "Campo requerido")]
         public string Nome { get; set; }
         public string Cpf { get; set; }
+
+
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
         public DateTime DataAdmissao { get; set; }
+        
         public string Telefone { get; set; }
 
         public int TipoLotacao { get; set; }
@@ -28,7 +34,5 @@ namespace PMS.Models
         public virtual Ocorrencia Ocorrencia { get; set; }
 
         public virtual ICollection<Encaminhamento> Encaminhamento { get; set; }
-
-
     }
 }

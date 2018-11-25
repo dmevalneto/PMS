@@ -1,0 +1,52 @@
+﻿@model PMS.Models.Terceirizado
+<div class="content-heading">
+    <div>
+        Terceirizados
+        <span class="text-sm d-none d-sm-block">Operações de terceirizados</span>
+    </div>
+</div>
+<hr />
+@using (Html.BeginForm("Consulta", "Terceirizado1", FormMethod.Post))
+{
+    <div class="input-group mb-3">
+        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+        </div>
+    </div>
+}
+
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("por ordem alfabética", "Index")</button>
+    </li>
+    <li class="nav-item">
+        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("por unidade", "Index")</button>
+    </li>
+    <li class="nav-item">
+        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("por cargo", "Index")</button>
+    </li>
+    <li class="nav-item">
+        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("por ocorrência", "Index")</button>
+    </li>
+</ul>
+<hr />
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card mb-3 border-info">
+            <div class="card-header text-white bg-info">Painel de Encaminhamentos</div>
+            <div class="card-body">
+                <center> <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Acessar", "ListarEncaminhamentos")</button></center>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card mb-3 border-info">
+            <div class="card-header text-white bg-info">Análise de Dados</div>
+            <div class="card-body">
+                <center> <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Acessar", "ListarEncaminhamentos")</button></center>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.EntityFramework;
 using PMS.Models;
 
 namespace PMS.Controllers
@@ -19,6 +20,46 @@ namespace PMS.Controllers
         {
             var terceirizadoes = db.Terceirizadoes.Include(t => t.Cargo).Include(t => t.Ocorrencia).Include(t => t.PrestadoraServico);
             return View(terceirizadoes.ToList().OrderBy(x => x.Nome));
+        }
+
+        public ActionResult OperacoesTerceirizado()
+        {
+            return View();
+        }
+
+        
+        public ActionResult ConsultaTerceirizado()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Consulta(Terceirizado ter)
+        {
+            var matches = from m in db.Terceirizadoes
+                          where m.Nome.Contains(ter.Nome)
+                          select m;
+            return View (matches);
+        }
+
+        public ActionResult Listarescola1()
+        {
+            return View(db.Escolas.ToList());
+        }
+
+        public ActionResult HistoricoEscola(int id)
+        {
+            return View(db.Terceirizadoes.Where(t => t.Lotacao == id));
+        }
+
+        public ActionResult HistoricoCargo()
+        {
+            return View(db.Cargoes.ToList());
+        }
+
+        public ActionResult HistoricoCargo1(int id)
+        {
+            return View(db.Terceirizadoes.Where(t => t.CargoId == id));
         }
 
         // GET: Terceirizado1/Details/5
@@ -56,7 +97,7 @@ namespace PMS.Controllers
             {
                 db.Terceirizadoes.Add(terceirizado);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("OperacoesTerceirizado");
             }
 
             ViewBag.CargoId = new SelectList(db.Cargoes, "CargoId", "Nome", terceirizado.CargoId);
@@ -342,23 +383,27 @@ namespace PMS.Controllers
             {
                 Secretaria sec = db.Secretarias.Find(enc.LotacaoId);
                 ViewBag.NomeLotacao = sec.Nome;
+                ViewBag.Responsavel = "Gustavo Oliveira";
             }
             if (enc.TipoLotacaoId == 4)
             {
                 PrefeituraBairro pre = db.PrefeituraBairroes.Find(enc.LotacaoId);
                 ViewBag.NomeLotacao = pre.Nome;
+                ViewBag.Responsavel = "Gustavo Oliveira";
             }
             if (enc.TipoLotacaoId == 5)
             {
                 Gre gre = db.Gres.Find(enc.LotacaoId);
                 ViewBag.NomeLotacao = gre.Regional;
+                ViewBag.Responsavel = "Gustavo Oliveira";
             }
             if (enc.TipoLotacaoId == 6)
             {
                 Escola esc = db.Escolas.Find(enc.LotacaoId);
                 ViewBag.NomeLotacao = esc.Nome;
                 ViewBag.endEscola = esc.Logradouro;
-                ViewBag.Bairro = esc.Bairro ;
+                ViewBag.Bairro = esc.Bairro;
+                ViewBag.Responsavel = "Gustavo Oliveira";
             }
 
             if (enc == null)

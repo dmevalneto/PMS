@@ -3,7 +3,7 @@
 
 <div class="content-heading">
     <div>
-        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Voltar", "Index")</button>
+        <button class="mb-1 btn btn-secondary" type="button">@Html.ActionLink("Voltar", "OperacoesTerceirizado")</button>
     </div>
     <div class="btn-group ml-auto">
         <button class="btn btn-labeled btn-info mb-2" onclick="cont();" type="button">
@@ -78,7 +78,7 @@
                 <th class="tg-mjvq" colspan="6"><img class="img-fluid" width="100px" height="15px" src="~/Content/Images/logo_prefeitura.png" alt="App Logo"></th>
             </tr>
             <tr>
-                <th class="tg-mjvq" colspan="6">Carta de Encaminhamento</th>
+                <th class="tg-mjvq" colspan="6"><h2>Carta de Encaminhamento</h2></th>
             </tr>
             <tr>
                 <td class="tg-hmp3" colspan="6">Nome:</td>
@@ -108,30 +108,28 @@
             <tr>
                 <td class="tg-0lax" colspan="6">@ViewBag.NomeLotacao</td>
             </tr>
+
             <tr>
-                <td class="tg-hmp3" colspan="6">Endereço:</td>
+                <td height="100px" class="tg-0lax" colspan="6">
+                    <center>
+                        <br />
+                        ___________________________________________________________________________
+                        <br />
+                        Responsavel do Setor:<br /> (@ViewBag.Responsavel):
+                    </center>
+                </td>
             </tr>
             <tr>
-                <td class="tg-0lax" colspan="6">@ViewBag.endEscola - @ViewBag.Bairro</td>
-            </tr>
-            <tr>
-                <td height="500px" valign="bottom" colspan="6">Responsavel:________________________________________________________________</td>
+
+                <td height="400px" valign="bottom" colspan="6">
+
+                    <center> @ViewBag.endEscola - @ViewBag.Bairro</center>
+                </td>
             </tr>
         </table>
 
 
-
-
-
-
-
-        @*<table width="100%" height="600px">
-                <tr>
-                    <td>Responsavel:</td>
-                    <td>___________________________________________________________________________________________</td>
-                </tr>
-            </table>
-        </page>*@
+    </page>
 </div>
 <link href="~/Content/css/a4.css" rel="stylesheet" />
 

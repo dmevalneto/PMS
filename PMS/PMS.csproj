@@ -841,6 +841,16 @@
     <Content Include="Views\OcorrenciaGre\ViewMapa.cshtml" />
     <Content Include="Views\OcorrenciaSec\ViewMapa.cshtml" />
     <Content Include="Views\OcorrenciaPB\ViewMapa.cshtml" />
+    <Content Include="Views\Terceirizado1\Consulta.cshtml" />
+    <Content Include="Views\Terceirizado1\ConsultaTerceirizado.cshtml" />
+    <Content Include="Views\Terceirizado1\HistoricoEscola.cshtml" />
+    <Content Include="Views\Terceirizado1\HistoricoCargo.cshtml" />
+    <Content Include="Views\Terceirizado1\HistoricoCargo1.cshtml" />
+    <Content Include="Views\Terceirizado1\Listarescola1.cshtml" />
+    <Content Include="Views\Terceirizado1\OperacoesTerceirizado.cshtml" />
+    <Content Include="Views\Encaminhamento\teste.cshtml" />
+    <Content Include="Views\Encaminhamento\teste1.cshtml" />
+    <Content Include="Views\Encaminhamento\teste2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -28,6 +28,36 @@ namespace PMS.Controllers
             return View();
         }
 
+        public ActionResult teste()
+        {
+            var robotDogs = (from d in db.Terceirizadoes
+                             join f in db.Cargoes
+                             on d.CargoId equals f.CargoId
+                             //where f.Location == "Texas"
+                             select d).ToList();
+            return View(robotDogs);
+        }
+
+        public ActionResult teste1()
+        {
+            var robotDogs = (from d in db.Terceirizadoes
+                             join f in db.Escolas
+                             on d.Lotacao equals f.EscolaId
+                             //where f.Location == "Texas"
+                             select d).ToList();
+            return View(robotDogs);
+        }
+
+        public ActionResult teste2()
+        {
+            var robotDogs = (from d in db.Escolas
+                             join f in db.Terceirizadoes
+                             on d.EscolaId equals f.Lotacao
+                             //where f.Location == "Texas"
+                             select d).ToList();
+            return View(robotDogs);
+        }
+
         // GET: Encaminhamento/Create
         public ActionResult Create()
         {
